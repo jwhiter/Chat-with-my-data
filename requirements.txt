@@ -19,11 +19,6 @@ chroma-hnswlib==0.7.3
 chromadb==0.4.22
 colorama
 comm
-conda
-conda-content-trust
-conda-libmamba-solver
-conda-package-handling
-conda_package_streaming
 cryptography
 dataclasses-json==0.6.4
 debugpy
