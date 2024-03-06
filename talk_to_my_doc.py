@@ -6,9 +6,7 @@ from embed_docs import *
 import os  # For environment variables
 from io import StringIO
 import PyPDF2
-import streamlit_authenticator as stauth
 import yaml
-from yaml.loader import SafeLoader
 
 
 def file_reader(uploaded_file):
