@@ -6,7 +6,9 @@ anyio==4.3.0
 archspec @ file:///croot/archspec_1697725767277/work
 asttokens @ file:///home/conda/feedstock_root/build_artifacts/asttokens_1698341106958/work
 attrs==23.2.0
+bcrypt==4.1.2
 blinker==1.7.0
+build==1.0.3
 boltons @ file:///C:/Users/dev-admin/perseverance-python-buildout/croot/boltons_1699480450092/work
 Brotli @ file:///C:/Users/dev-admin/perseverance-python-buildout/croot/brotli-split_1699473013692/work
 cachetools==5.3.3
@@ -14,6 +16,8 @@ certifi @ file:///home/conda/feedstock_root/build_artifacts/certifi_170702213979
 cffi @ file:///C:/b/abs_924gv1kxzj/croot/cffi_1700254355075/work
 charset-normalizer @ file:///tmp/build/80754af9/charset-normalizer_1630003229654/work
 click==8.1.7
+chroma-hnswlib==0.7.3
+chromadb==0.4.22
 colorama @ file:///C:/Users/dev-admin/perseverance-python-buildout/croot/colorama_1699472650914/work
 comm @ file:///home/conda/feedstock_root/build_artifacts/comm_1704278392174/work
 conda @ file:///D:/bld/conda_1708705688290/work
@@ -28,6 +32,8 @@ decorator @ file:///home/conda/feedstock_root/build_artifacts/decorator_16415556
 distro @ file:///C:/Users/dev-admin/perseverance-python-buildout/croot/distro_1701796812765/work
 exceptiongroup @ file:///home/conda/feedstock_root/build_artifacts/exceptiongroup_1704921103267/work
 executing @ file:///home/conda/feedstock_root/build_artifacts/executing_1698579936712/work
+fastapi==0.109.1
+filelock==3.13.1
 frozenlist==1.4.1
 gitdb==4.0.11
 GitPython==3.1.42
