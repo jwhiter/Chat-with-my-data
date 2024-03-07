@@ -1,4 +1,5 @@
 # Import prerequisite libraries
+import openai
 from openai import AzureOpenAI
 import streamlit as st
 from streamlit_chat import message
