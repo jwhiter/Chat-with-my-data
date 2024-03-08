@@ -1,6 +1,4 @@
 # Import prerequisite libraries
-import openai
-from openai import AzureOpenAI
 import streamlit as st
 from streamlit_chat import message
 from embed_docs import *
@@ -8,6 +6,7 @@ import os  # For environment variables
 from io import StringIO
 import PyPDF2
 import yaml
+from openai import AzureOpenAI
 
 
 def file_reader(uploaded_file):
