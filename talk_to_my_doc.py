@@ -17,11 +17,11 @@ def file_reader(uploaded_file):
 
 def main():
     """The main function that runs the chatbot application."""
-    st.title("🙈 Welcome 🙈")
-    st.write(f'Steps')
-    st.write(f'1) Log in')
-    st.write(f'2) Upload your file')
-    uploaded_file = st.sidebar.file_uploader("Upload File", type="pdf")
+    st.title("🙈 Bienvenida 🙈")
+    st.write(f'Pasos a seguir para que no te pierdas')
+    st.write(f'1) Sube el documento pdf')
+    st.write(f'2) Empieza a chatear')
+    uploaded_file = st.sidebar.file_uploader("Sube tu documento", type="pdf")
     db = file_reader(uploaded_file)
     if uploaded_file:
         if 'history' not in st.session_state:
@@ -29,10 +29,10 @@ def main():
 
         # Initialize messages
         if 'generated' not in st.session_state:
-            st.session_state['generated'] = ["I'm here to help you with " + uploaded_file.name + "? 🤗"]
+            st.session_state['generated'] = ["Acabo de leerme " + uploaded_file.name + " y estoy listo para responder tus preguntas. Que necesitas saber? 🤗"]
 
         if 'past' not in st.session_state:
-            st.session_state['past'] = ["Hey ! 👋"]
+            st.session_state['past'] = ["Hola!, me llamo Beatriz y tengo muchas dudas 👋"]
         
         # Create containers for chat history and user input
         response_container = st.container()
@@ -40,7 +40,7 @@ def main():
         # User input form
         with container:
             with st.form(key='my_form', clear_on_submit=True):
-                user_input = st.text_input("Any question:", placeholder="Question", key='input')
+                user_input = st.text_input("Tu pregunta:", placeholder="Pregunta de Beatriz", key='input')
                 submit_button = st.form_submit_button(label='Send')
 
             if submit_button and user_input:
@@ -58,6 +58,6 @@ def main():
 
 if __name__ == "__main__":
   password = "None"
-  password = st.text_input("Magical word?", type="password", label_visibility="visible")
+  password = st.text_input("Cual es la palabra Mágica?", type="password", label_visibility="visible")
   if password == st.secrets["PASSWORD"]:
     main()

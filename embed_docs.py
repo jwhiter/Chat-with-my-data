@@ -57,7 +57,6 @@ class Document:
         #     #
         # else:
         # # Create new db
-        print("New doc")
         chunks = Document.create_chunks(self)
         vectordb = FAISS.from_documents(chunks, embedding_model)
         # vectordb = Chroma.from_documents(
