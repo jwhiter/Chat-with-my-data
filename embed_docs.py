@@ -2,7 +2,7 @@ from PyPDF2 import PdfReader
 from langchain.chains import RetrievalQA
 from langchain.vectorstores import Chroma
 from langchain_openai import AzureOpenAIEmbeddings
-from langchain.text_splitter import CharacterTextSplitter
+from langchain.text_splitter import CharacterTextSplitter, RecursiveCharacterTextSplitter
 from langchain_openai import AzureChatOpenAI
 from langchain.chat_models import ChatOpenAI
 import openai
@@ -31,19 +31,19 @@ class Document:
             pdf_reader = PdfReader(self.file)
             all_text = ""
             for page in range(len(pdf_reader.pages)):
-                all_text += pdf_reader.pages[page].extract_text()
+                all_text += pdf_reader.pages[page].extract_text() + '\n\n'
             self.all_text = all_text
             print("Document read")
         
         # Split into document objects   
-        text_splitter = CharacterTextSplitter(
-            separator="\n\n",
+        text_splitter = RecursiveCharacterTextSplitter(
             chunk_size=chunk_size,
             chunk_overlap=20,
             length_function=len,
             is_separator_regex=False,
         )
         chunks = text_splitter.create_documents([self.all_text])
+        print("Number of chunks: ", len(chunks))
         print("Document processed")
         return chunks 
     
