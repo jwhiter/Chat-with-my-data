@@ -1,6 +1,7 @@
 from PyPDF2 import PdfReader
 from langchain.chains import RetrievalQA
-from langchain.vectorstores import Chroma
+# from langchain.vectorstores import Chroma
+from langchain_community.vectorstores import FAISS
 from langchain_openai import AzureOpenAIEmbeddings
 from langchain.text_splitter import CharacterTextSplitter, RecursiveCharacterTextSplitter
 from langchain_openai import AzureChatOpenAI
@@ -50,19 +51,21 @@ class Document:
     def get_db(self):
         directory=f"./chroma/{self.file_name}"
         embedding_model = AzureOpenAIEmbeddings(azure_deployment="text-embedding-ada-002")
-        if os.path.exists(directory):
-            # Load presaved db
-            vectordb = Chroma(persist_directory=directory, embedding_function=embedding_model)
-        else:
-            # Create new db
-            print("New doc")
-            chunks = Document.create_chunks(self)
-            vectordb = Chroma.from_documents(
-                chunks, 
-                embedding_model,
-                persist_directory=directory
-            )
-            vectordb.persist() # This stores the db in the specified folder
+        # if os.path.exists(directory):
+        #     # Load presaved db
+        #     vectordb = FAISS.from_documents(chunks, embedding_model)
+        #     #
+        # else:
+        # # Create new db
+        print("New doc")
+        chunks = Document.create_chunks(self)
+        vectordb = FAISS.from_documents(chunks, embedding_model)
+        # vectordb = Chroma.from_documents(
+        #     chunks, 
+        #     embedding_model,
+        #     persist_directory=directory
+        # )
+        # vectordb.persist() # This stores the db in the specified folder
         return vectordb
     
 
