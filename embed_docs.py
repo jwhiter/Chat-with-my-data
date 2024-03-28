@@ -72,17 +72,17 @@ class Question_Engine:
     def __init__(self, query, vectordb) -> None:
         self.query = query
         self.vectordb = vectordb
-
-    def get_answer(self):
-        llm=AzureChatOpenAI(deployment_name='gpt-4', 
+        self.llm = AzureChatOpenAI(deployment_name='gpt-4', 
                       model_name='gpt-4', 
                       temperature=0, 
                       api_version="2023-08-01-preview")
-        qa_chain = RetrievalQA.from_chain_type(
-            llm = llm, 
+        self.qa_chain = RetrievalQA.from_chain_type(
+            llm = self.llm, 
             chain_type="stuff", 
             retriever=self.vectordb.as_retriever(),
             return_source_documents=True,
         )
-        llm_response = qa_chain({"query": self.query})
+
+    def get_answer(self):
+        llm_response = self.qa_chain({"query": self.query})
         return llm_response
