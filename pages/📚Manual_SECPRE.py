@@ -38,7 +38,7 @@ def load_sources_from_file():
 
 def file_reader():
     embedding_model = AzureOpenAIEmbeddings(azure_deployment="text-embedding-ada-002")
-    db = FAISS.load_local("faiss_index/manual-SECPRE", embedding_model, allow_dangerous_deserialization=True)   
+    db = FAISS.load_local("faiss_index/Manual-SECPRE", embedding_model, allow_dangerous_deserialization=True)   
     return db
 def on_click_sources():
     modal = Modal(key="Demo Key", title="Fuentes de la respuesta:")
